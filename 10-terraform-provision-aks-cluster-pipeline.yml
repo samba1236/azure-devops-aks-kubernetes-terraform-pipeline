@@ -112,8 +112,9 @@ stages:
 ## Step-2: Terraform Initialize (State Storage to store in Azure Storage Account)
 ## Step-3: Terraform Plan 
 ## Step-4: Terraform Apply
-      - deployment: DeployAKSClusters
-        displayName: DeployAKSClusters
+      - deployment: DeployQAAKSCluster
+        dependsOn: DeployDevAKSCluster
+        displayName: DeployQAAKSCluster
         pool:
           vmImage: ubuntu-latest
         environment: $(QA_ENVIRONMENT)
